@@ -9,6 +9,7 @@ const key = "OJx1WUyAsGtwcxdOxyYNmPaEYAvbmpkqDyNOE-siZlM"
 runEvents()
 function runEvents(){
     form.addEventListener("submit", search)
+    clearBtn.addEventListener("click" , clearUI)
 }
 
 function search(e){
@@ -36,6 +37,14 @@ function createUI(url){
     const img = document.createElement("img")
     img.className = "img-fluid"
     img.src = url
+    img.style.width = "350px"
+    img.style.height = "350px"
+    img.style.padding = "3px"
     div.appendChild(img)
     listDiv.appendChild(div)
+}
+
+function clearUI(){
+   input.value = ""
+   Array.from(listDiv.children).forEach(divs=>divs.remove())
 }
